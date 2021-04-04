@@ -2,8 +2,9 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/home';
 import ReviewDetails from '../screens/reviewDetails';
+import Header from '../shared/header';
 
-const homeStack = () => {
+const homeStack = ({ navigation }) => {
   const Stack = createStackNavigator();
   return (
     <Stack.Navigator
@@ -19,7 +20,7 @@ const homeStack = () => {
         name="Home"
         component={Home}
         options={{
-          title: 'Gamezone'
+          headerTitle: () => <Header title="Gamezone" navigation={navigation} />
         }}
       />
       <Stack.Screen
