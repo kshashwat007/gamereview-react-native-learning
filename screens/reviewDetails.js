@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { StyleSheet, View, Text, Image } from 'react-native';
+import { globalStyles, images } from '../styles/global';
 import Card from '../shared/card';
 
 export default function ReviewDetails({ route, navigation }) {
@@ -10,8 +10,15 @@ export default function ReviewDetails({ route, navigation }) {
       <Card>
         <Text>{title}</Text>
         <Text>{body}</Text>
-        <Text>{rating}</Text>
+        <View style={styles.rating}>
+          <Text>Rating: </Text>
+          <Image source={images.rating[rating]} />
+        </View>
       </Card>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  rating: {}
+});
