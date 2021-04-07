@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import About from '../screens/about';
 import ReviewDetails from '../screens/reviewDetails';
 import Header from '../shared/header';
+import { Image } from 'react-native';
 
 const aboutStack = ({ navigation }) => {
   const Stack = createStackNavigator();
@@ -20,7 +21,13 @@ const aboutStack = ({ navigation }) => {
         name="About"
         component={About}
         options={{
-          headerTitle: () => <Header title="About" navigation={navigation} />
+          headerTitle: () => <Header title="About" navigation={navigation} />,
+          headerBackground: () => (
+            <Image
+              source={require('../assets/game_bg.png')}
+              style={{ height: 60 }}
+            />
+          )
         }}
       />
     </Stack.Navigator>
