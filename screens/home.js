@@ -37,17 +37,23 @@ export default function Home({ navigation }) {
   ]);
   return (
     <View style={globalStyles.container}>
-      <Modal visible={modelOpen}>
+      <Modal visible={modelOpen} animationType="slide">
         <View style={styles.modalContent}>
           <MaterialIcons
-            name="add"
+            name="close"
             size={24}
+            style={{ ...styles.modelToggle, ...styles.modelClose }}
             onPress={() => setModelOpen(false)}
           />
           <Text>Hello</Text>
         </View>
       </Modal>
-      <MaterialIcons name="add" size={24} onPress={() => setModelOpen(true)} />
+      <MaterialIcons
+        name="add"
+        size={24}
+        style={styles.modelToggle}
+        onPress={() => setModelOpen(true)}
+      />
       <FlatList
         data={reviews}
         renderItem={({ item }) => (
@@ -67,5 +73,19 @@ export default function Home({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  modalContent: {}
+  modalContent: {
+    flex: 1
+  },
+  modelToggle: {
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: '#f2f2f2',
+    padding: 10,
+    borderRadius: 10,
+    alignSelf: 'center'
+  },
+  modelClose: {
+    marginTop: 20,
+    marginBottom: 0
+  }
 });
