@@ -25,7 +25,7 @@ const aboutStack = ({ navigation }) => {
           headerBackground: () => (
             <Image
               source={require('../assets/game_bg.png')}
-              style={{ height: 60 }}
+              style={{ height: '100%' }}
             />
           )
         }}
