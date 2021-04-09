@@ -36,6 +36,14 @@ export default function Home({ navigation }) {
       key: '3'
     }
   ]);
+
+  const addReview = (review) => {
+    review.key = Math.random().toString();
+    setReviews((currentReviews) => {
+      return [review, ...currentReviews];
+    });
+    setModelOpen(false);
+  };
   return (
     <View style={globalStyles.container}>
       <Modal visible={modelOpen} animationType="slide">
@@ -46,7 +54,7 @@ export default function Home({ navigation }) {
             style={{ ...styles.modelToggle, ...styles.modelClose }}
             onPress={() => setModelOpen(false)}
           />
-          <ReviewForm />
+          <ReviewForm addReview={addReview} />
         </View>
       </Modal>
       <MaterialIcons
