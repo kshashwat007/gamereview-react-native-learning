@@ -34,6 +34,9 @@ export default function ReviewForm({ addReview }) {
               onChangeText={props.handleChange('title')}
               value={props.values.title}
             />
+            <Text style={globalStyles.errorText}>
+              {props.touched.title && props.errors.title}
+            </Text>
             <TextInput
               style={globalStyles.input}
               multiline
@@ -41,6 +44,9 @@ export default function ReviewForm({ addReview }) {
               onChangeText={props.handleChange('body')}
               value={props.values.body}
             />
+            <Text style={globalStyles.errorText}>
+              {props.touched.body && props.errors.body}
+            </Text>
             <TextInput
               style={globalStyles.input}
               placeholder="Rating (1-5)"
@@ -48,6 +54,9 @@ export default function ReviewForm({ addReview }) {
               value={props.values.rating}
               keyboardType="numeric"
             />
+            <Text style={globalStyles.errorText}>
+              {props.touched.rating && props.errors.rating}
+            </Text>
             <Button title="Submit" color="red" onPress={props.handleSubmit} />
           </View>
         )}
