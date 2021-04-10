@@ -3,6 +3,7 @@ import { StyleSheet, Button, TextInput, View, Text } from 'react-native';
 import { globalStyles } from '../styles/global';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import CustomButton from '../shared/button';
 
 const ReviewSchema = yup.object({
   title: yup.string().required().min(3),
@@ -60,7 +61,7 @@ export default function ReviewForm({ addReview }) {
             <Text style={globalStyles.errorText}>
               {props.touched.rating && props.errors.rating}
             </Text>
-            <Button title="Submit" color="red" onPress={props.handleSubmit} />
+            <CustomButton text="Submit" onPress={props.handleSubmit} />
           </View>
         )}
       </Formik>
